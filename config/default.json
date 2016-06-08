@@ -2,14 +2,26 @@
 	"routes" : [
 		{
 			"path" : "/",
-			"view" : "chat"
+			"view" : "room",
+			"type"	: "page",
+			"extension" : "html"
+		},
+		{
+			"path" : "/assets/:param",
+			"view" : "",
+			"type"	: "file",
+			"extension" : "js"
 		}
 	],
 	"socket" : true,
 	"events" : [
 		{
-			"listener" : "send",
-			"method"   : "messenger::send"
+			"listener" : "draw_line",
+			"method"   : "messenger::draw_line"
+		},
+		{
+			"listener" : "leave",
+			"method"   : "messenger::leave"
 		}
 	]
 }
